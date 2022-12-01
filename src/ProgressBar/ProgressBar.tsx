@@ -18,6 +18,7 @@ const ProgressBar = forwardRef<HTMLDivElement, IProgressBarProps>(
     }: IProgressBarProps,
     ref
   ) => {
+    console.log('render');
     
     return (
       <div className="UUID_RootStylesIsolation" ref={ref}>

@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+}
+
+.UUID_RootStylesIsolation {
+    position: relative;
+    height: 200px;
+    background: gray;
+    margin-right: 200px;
+}
+
+.UUID_RootStylesIsolation .water {
+    position: absolute;
+    height: 10px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: blue;
+}
+
+.UUID_RootStylesIsolation .progress {
+    position: absolute;
+    height: 10px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    background: orange;
+}
+
+.UUID_RootStylesIsolation .progressArrow {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+    width: 2px;
+    will-change: left;
+    left: 0;
+    background: yellow;
+    box-shadow: 0 0 10px black;
+    transition: left 1s linear;
+}
+
+.UUID_RootStylesIsolation .boat {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: red;
+    will-change: left;
+    left: 0;
+    bottom: 65px;
+    box-shadow: 0 10px 5px rgb(255, 0, 0, .6);
+    transition: left 1s linear;
+    z-index: 1;
+}
+
+.UUID_RootStylesIsolation .boatText {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: orange;
+}

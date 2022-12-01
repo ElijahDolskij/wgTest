@@ -13,34 +13,35 @@ const EllepsisText = ({ lineHeight = 1.2, children }: IEllepsisTextProps) => {
   const [clamp, setClamp] = useState<number | string>("unset");
 
   useEffect(() => {
-    const oneLineHeight =
-      text.current &&
+    if (!text.current) {
+      return;
+    }
+
+    const oneLineTextSize =
       parseInt(
         window.getComputedStyle(text.current).getPropertyValue("font-size")
       ) * lineHeight;
 
-    const recalCulateStrings = (entries: any) => {
+    const reCalculateStrings = (entries: any) => {
       entries.forEach((entry: any) => {
-        const currentHeight = entry.contentRect.height;
         const parentHeight = entry.target.parentNode.clientHeight;
         const childHeight = entry.target.firstElementChild.clientHeight;
+        const childMoreOn = parentHeight - childHeight;
 
-        if (oneLineHeight) {
-          setClamp((prev) => {
-            if (childHeight > parentHeight) {
-              return Math.floor(currentHeight / oneLineHeight) - 1;
-            } else if (parentHeight > childHeight + oneLineHeight / 2) {
-              return "unset";
-            }
+        setClamp((prev) => {
+          if (childMoreOn) {
+            const r = Math.floor(parentHeight / oneLineTextSize);
+          
+            return r;
+          }
 
-            return prev;
-          });
-        }
+          return prev;
+        });
       });
     };
 
     const observer = new ResizeObserver(
-      throttle(recalCulateStrings, 500, {
+      throttle(reCalculateStrings, 500, {
         leading: false,
       })
     );

@@ -4,53 +4,113 @@ body {
 
 .UUID_RootStylesIsolation {
     position: relative;
-    height: 200px;
+    height: 146px;
     background: gray;
-    margin-right: 200px;
+    background: linear-gradient(#00121C, #000B11, #010302);
 }
 
 .UUID_RootStylesIsolation .water {
     position: absolute;
     height: 10px;
-    bottom: 60px;
+    bottom: 50px;
     left: 0;
     right: 0;
-    background: blue;
+    background: url('img/wave.svg');
+    background-size: contain;
+}
+
+.UUID_RootStylesIsolation .water::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 5px;
+    background: url('img/wave.svg');
+    background-size: contain;
+    background-position-x: 40px;
 }
 
 .UUID_RootStylesIsolation .progress {
     position: absolute;
     height: 10px;
-    bottom: 50px;
+    bottom: 40px;
     left: 0;
     right: 0;
-    background: orange;
+    background: #0F161C;
 }
 
 .UUID_RootStylesIsolation .progressArrow {
     content: "";
     position: absolute;
-    bottom: 0;
-    height: 10px;
+    bottom: -1px;
+    top: -1px;
     width: 2px;
     will-change: left;
     left: 0;
-    background: yellow;
-    box-shadow: 0 0 10px black;
-    transition: left 1s linear;
+    background: #FFDC88;
+    box-shadow: 0 5px 10px rgb(255, 176, 65);
+    transition: left 0.5s ease-in-out;
+    background: #F4BF18;
+    z-index: 1;
+}
+
+.UUID_RootStylesIsolation .progressArrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    background: #F4BF18;
+    box-shadow: 0 20px 15px rgb(230, 133, 30);
+}
+
+.UUID_RootStylesIsolation .progressArrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    background: #F4BF18;
+    box-shadow: 0 20px 20px rgb(230, 133, 30);
+}
+
+.UUID_RootStylesIsolation .progressFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #FFB041;
+    transition: width 0.5s ease-in-out;
 }
 
 .UUID_RootStylesIsolation .boat {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background: red;
     will-change: left;
+    height: 40px;
     left: 0;
-    bottom: 65px;
-    box-shadow: 0 10px 5px rgb(255, 0, 0, .6);
-    transition: left 1s linear;
+    bottom: 55px;
+    transition: left 0.5s ease-in-out;
     z-index: 1;
+}
+
+.UUID_RootStylesIsolation .boat::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 7px;
+    bottom: 6px;
+    height: 5px;
+    box-shadow: 0 10px 7px rgb(230 133 30);
+}
+
+.UUID_RootStylesIsolation .boat img {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .UUID_RootStylesIsolation .boatText {
@@ -59,5 +119,8 @@ body {
     right: 0;
     left: 0;
     text-align: center;
+    text-shadow: 0 0 12px rgb(230 133 30);
+    font-size: 14px;
+    font-weight: 700;
     color: orange;
 }

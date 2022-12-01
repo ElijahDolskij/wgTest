@@ -13,13 +13,15 @@ interface IProgressBarContainerProps {
   max: number;
   boatImageWidth?: number;
   arrowWidth?: number;
+  comaInThausand?: boolean;
 }
 
 const ProgressBarContainer = ({
   current,
   max,
-  boatImageWidth = 40,
+  boatImageWidth = 80,
   arrowWidth = 2,
+  comaInThausand,
 }: IProgressBarContainerProps) => {
   const scene = useRef<HTMLDivElement>(null);
   const [boatOffsetLeft, setBoatOffsetLeft] = useState<string>("0");
@@ -55,6 +57,7 @@ const ProgressBarContainer = ({
       boatImageWidth={boatImageWidth}
       boatOffsetLeft={boatOffsetLeft}
       arrowOffsetLeft={arrowOffsetLeft}
+      comaInThausand={comaInThausand}
       ref={scene}
     />
   );

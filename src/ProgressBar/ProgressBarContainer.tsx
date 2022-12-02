@@ -9,56 +9,57 @@ const ProgressBarMemoized = memo(
 );
 
 interface IProgressBarContainerProps {
-  current: number;
-  max: number;
+  currentValue: number;
+  maxValue: number;
   boatImageWidth?: number;
   arrowWidth?: number;
   comaInThausand?: boolean;
 }
 
 const ProgressBarContainer = ({
-  current,
-  max,
+  currentValue,
+  maxValue,
   boatImageWidth = 80,
   arrowWidth = 2,
   comaInThausand,
 }: IProgressBarContainerProps) => {
-  const scene = useRef<HTMLDivElement>(null);
+  const sceneEl = useRef<HTMLDivElement>(null);
   const [boatOffsetLeft, setBoatOffsetLeft] = useState<string>("0");
   const [arrowOffsetLeft, setArrowOffsetLeft] = useState<string>("0");
 
   useEffect(() => {
-    const onePercentOfMax = max / 100;
-    const currentInPercent = current / onePercentOfMax;
-    const halfOfBoat = boatImageWidth / 2;
-    const halfOfArrow = arrowWidth / 2;
-    const sceneWidth = scene.current?.clientWidth ?? 0;
+    const onePercentOfMax = maxValue / 100;
+    const currentInPercs = currentValue / onePercentOfMax;
+    const halfOfBoatWIdth = boatImageWidth / 2;
+    const halfOfArrowWidth = arrowWidth / 2;
+    const sceneWidth = sceneEl.current?.clientWidth ?? 0;
     const scenePercInPx = sceneWidth / 100;
 
     const calculateOffsetFor = (width: number, half: number) => {
-      if (scenePercInPx * currentInPercent > half) {
-        if (scenePercInPx * currentInPercent + half > sceneWidth) {
+      if (scenePercInPx * currentInPercs > half) {
+        if (scenePercInPx * currentInPercs + half > sceneWidth) {
           return `calc(100% - ${width}px)`;
         } else {
-          return `calc(${currentInPercent}% - ${half}px)`;
+          return `calc(${currentInPercs}% - ${half}px)`;
         }
       } else {
         return "0";
       }
     };
 
-    setBoatOffsetLeft(calculateOffsetFor(boatImageWidth, halfOfBoat));
-    setArrowOffsetLeft(calculateOffsetFor(arrowWidth, halfOfArrow));
-  }, [boatImageWidth, arrowWidth, max, current]);
+    setBoatOffsetLeft(calculateOffsetFor(boatImageWidth, halfOfBoatWIdth));
+    setArrowOffsetLeft(calculateOffsetFor(arrowWidth, halfOfArrowWidth));
+  }, [boatImageWidth, arrowWidth, maxValue, currentValue]);
 
   return (
     <ProgressBarMemoized
-      progressText={current.toString()}
+      progressText={currentValue.toString()}
       boatImageWidth={boatImageWidth}
       boatOffsetLeft={boatOffsetLeft}
       arrowOffsetLeft={arrowOffsetLeft}
       comaInThausand={comaInThausand}
-      ref={scene}
+      arrowWidth={arrowWidth}
+      ref={sceneEl}
     />
   );
 };

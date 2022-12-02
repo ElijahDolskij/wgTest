@@ -1,15 +1,11 @@
-body {
-    margin: 0;
-}
-
-.UUID_RootStylesIsolation {
+.generatedHashPrefix-scene {
     position: relative;
     height: 146px;
     background: gray;
-    background: linear-gradient(#00121C, #000B11, #010302);
+    background: linear-gradient(#00576a, #000B11, #010302);
 }
 
-.UUID_RootStylesIsolation .water {
+.generatedHashPrefix-scene .water {
     position: absolute;
     height: 10px;
     bottom: 50px;
@@ -19,7 +15,7 @@ body {
     background-size: contain;
 }
 
-.UUID_RootStylesIsolation .water::before {
+.generatedHashPrefix-scene .water::before {
     content: "";
     position: absolute;
     left: 0;
@@ -31,7 +27,7 @@ body {
     background-position-x: 40px;
 }
 
-.UUID_RootStylesIsolation .progress {
+.generatedHashPrefix-scene .progress {
     position: absolute;
     height: 10px;
     bottom: 40px;
@@ -40,12 +36,11 @@ body {
     background: #0F161C;
 }
 
-.UUID_RootStylesIsolation .progressArrow {
+.generatedHashPrefix-scene .progressArrow {
     content: "";
     position: absolute;
     bottom: -1px;
     top: -1px;
-    width: 2px;
     will-change: left;
     left: 0;
     background: #FFDC88;
@@ -55,7 +50,7 @@ body {
     z-index: 1;
 }
 
-.UUID_RootStylesIsolation .progressArrow::before {
+.generatedHashPrefix-scene .progressArrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -66,7 +61,7 @@ body {
     box-shadow: 0 20px 15px rgb(230, 133, 30);
 }
 
-.UUID_RootStylesIsolation .progressArrow::after {
+.generatedHashPrefix-scene .progressArrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -77,7 +72,7 @@ body {
     box-shadow: 0 20px 20px rgb(230, 133, 30);
 }
 
-.UUID_RootStylesIsolation .progressFill {
+.generatedHashPrefix-scene .progressFill {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +81,7 @@ body {
     transition: width 0.5s ease-in-out;
 }
 
-.UUID_RootStylesIsolation .boat {
+.generatedHashPrefix-scene .boat {
     position: absolute;
     will-change: left;
     height: 40px;
@@ -96,7 +91,7 @@ body {
     z-index: 1;
 }
 
-.UUID_RootStylesIsolation .boat::before {
+.generatedHashPrefix-scene .boat::before {
     content: "";
     position: absolute;
     left: 4px;
@@ -107,13 +102,13 @@ body {
     box-shadow: 0 10px 7px rgb(230 133 30);
 }
 
-.UUID_RootStylesIsolation .boat img {
+.generatedHashPrefix-scene .boat img {
     position: absolute;
     width: 100%;
     bottom: 0;
 }
 
-.UUID_RootStylesIsolation .boatText {
+.generatedHashPrefix-scene .boatText {
     position: absolute;
     top: -20px;
     right: 0;

@@ -7,7 +7,8 @@ interface IProgressBarProps {
   arrowOffsetLeft: string;
   boatOffsetLeft: string;
   boatImageWidth?: number;
-  comaInThausand?: boolean
+  comaInThausand?: boolean;
+  arrowWidth?: number;
 }
 
 const ProgressBar = forwardRef<HTMLDivElement, IProgressBarProps>(
@@ -18,16 +19,19 @@ const ProgressBar = forwardRef<HTMLDivElement, IProgressBarProps>(
       boatOffsetLeft,
       boatImageWidth,
       comaInThausand,
+      arrowWidth,
     }: IProgressBarProps,
-    ref
+    sceneElRef
   ) => {
-
     return (
-      <div className="UUID_RootStylesIsolation" ref={ref}>
+      <div className="generatedHashPrefix-scene" ref={sceneElRef}>
         <div className="water" />
         <div className="progress">
           <div className="progressFill" style={{ width: arrowOffsetLeft }} />
-          <div className="progressArrow" style={{ left: arrowOffsetLeft }} />
+          <div
+            className="progressArrow"
+            style={{ left: arrowOffsetLeft, width: arrowWidth }}
+          />
         </div>
         <div
           className="boat"
